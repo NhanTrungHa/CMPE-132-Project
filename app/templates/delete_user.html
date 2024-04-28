@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Confirm Delete
+{% endblock %}
+
+{% block content %}
+
+<html>
+    <head>
+        <base href="http://127.0.0.1:5000/">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}"/>
+    </head>
+    <body>
+        <div id="header" class="container">
+            <h1 class="display-4 text-primary text-center"> Are you sure you want to delete? :( </h1>
+            <div>
+            {% if current_user.is_anonymous %}
+            <p> Not Logged In! </p>
+            {% else %}
+                <div class="row top5">
+                    <div class="col text-center">
+                        <a href="remove_user" class="btn btn-danger btn-lg active text-center" role="button" aria-pressed="true">Confirm Delete Account</a>
+                    </div>
+                <br>
+                <br>
+                <br>
+                </div>
+                <div class="row top5">
+                    <div class="col text-center">
+                        <a href="index" class="btn btn-primary btn-lg active text-center" role="button" aria-pressed="true">Cancel</a>
+                    </div>
+                    {% endif %}
+                </div>
+
+            </div>
+        </div>
+            {% endblock %}
+        </div>
+    </body>
+</html>

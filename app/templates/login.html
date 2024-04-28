@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block content %}
+<div class="form-group row justify-content-center">
+<form action="" method="POST">
+
+    {{ form.hidden_tag() }}
+    <h1 class="display-4 text-primary"> Login </h1>
+    <br>
+    <div>
+        <label class="control-label">{{ form.email(class="rounded form-control",placeholder="E-mail")}} </label>
+        {% for error in form.email.errors %}
+        <p>{{ error }}</p>
+        {% endfor %}
+    </div>
+    <br>
+    <div>
+        <label class="control-label">{{ form.password(class="rounded form-control",placeholder="password")}} </label>
+         {% for error in form.password.errors %}
+         <p>{{ error }}</p>
+         {% endfor %}
+    </div>
+    <p>{{ form.remember() }} {{ form.remember.label }}</p>
+    <br>
+    <p>
+         {{ form.submit(class="btn btn-primary") }} <a class="btn btn-danger" href="register">Register instead</a>
+    </p>
+
+</form>
+</div>
+<br>
+{% for message in get_flashed_messages() %}
+<p>Error: {{message}} </p>
+{% endfor %}
+{% endblock %}

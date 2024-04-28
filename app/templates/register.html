@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Register
+{% endblock %}
+
+{% block content %}
+<div class="form-group row justify-content-center parallax">
+ <form action="" method="POST">
+    {{ form.hidden_tag() }}
+     <h1 class="display-4 text-primary"> Register </h1>
+     <div>
+         <label class="control-label">{{ form.firstname(class="rounded form-control",placeholder="First")}} </label>
+         {% for error in form.firstname.errors %}
+         <p>{{ error }}</p>
+         {% endfor %}
+     </div>
+     <br>
+     <div>
+         <label class="control-label"> {{ form.lastname(class="rounded form-control",placeholder="Last")}} </label>
+         {% for error in form.username.errors %}
+         <p>{{ error }}</p>
+         {% endfor %}
+     </div>
+     <br>
+     <div>
+         <label class="control-label"> {{ form.username(class="rounded form-control",placeholder="Username")}} </label>
+         {% for error in form.username.errors %}
+         <p>{{ error }}</p>
+         {% endfor %}
+     </div>
+     <br>
+     <div>
+         <label class="control-label"> {{ form.email(class="rounded form-control",placeholder="E-mail")}}</label>
+         {% for error in form.email.errors %}
+         <p>{{ error }}</p>
+         {% endfor %}
+     </div>
+     <br>
+     <div>
+         <label class="control-label">  {{ form.password1(class="rounded form-control",placeholder="password")}}</label>
+          {% for error in form.password1.errors %}
+          <p>{{ error }}</p>
+          {% endfor %}
+     </div>
+     <br>
+     <div>
+          <label class="control-label"> {{ form.password2(class="rounded form-control",placeholder="Confirm password")}}</label>
+          {% for error in form.password2.errors %}
+          <p>{{ error }}</p>
+          {% endfor %}
+     </div>
+     <br>
+     <div>
+        <select name="role" class="rounded form-control">
+            <option value="registered_user" {% if form.role == 'registered_user' %}selected{% endif %}>Registered User</option>
+            <option value="admin" {% if form.role == 'admin' %}selected{% endif %}>Admin</option>
+            <option value="librarian" {% if form.role == 'librarian' %}selected{% endif %}>Librarian</option>
+            <option value="professor" {% if form.role == 'professor' %}selected{% endif %}>Professor</option>
+            <option value="student" {% if form.role == 'student' %}selected{% endif %}>Student</option>
+        </select>
+        {% for error in form.role.errors %}
+        <p>{{ error }}</p>
+        {% endfor %}
+    </div>
+
+     <br>
+     <div>
+          <label class="control-label"> {{ form.securityQuestion(class="rounded form-control", placeholder="Security Question")}}</label>
+          {% for error in form.securityQuestion.errors %}
+          <p>{{ error }}</p>
+          {% endfor %}
+     </div>
+     <br>
+     <div>
+          <label class="control-label"> {{ form.securityQuestionAnswer(class="rounded form-control",placeholder="Answer")}}</label>
+          {% for error in form.password2.errors %}
+          <p>{{ error }}</p>
+          {% endfor %}
+     </div>
+     <br>
+     <div>
+          {{ form.submit(class="btn btn-primary") }} <a class="btn btn-danger" href="login">Login instead</a>
+     </div>
+ </form>
+    {% for message in get_flashed_messages() %}
+    <p>Error: {{message}} </p>
+    {% endfor %}
+</div>
+{% endblock %}

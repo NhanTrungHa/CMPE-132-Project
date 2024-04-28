@@ -1,0 +1,104 @@
+table, th, td {
+    border: 1px solid black;
+  }
+
+.form-control:focus {
+        border-color: #28a745;
+        box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+.form-control:focus {
+   box-shadow:none;
+}
+
+body {
+    background-color: #f0f2f4;
+}
+
+.navbar-custom {
+    background-color: #0046be;
+}
+
+.navbar-custom .navbar-brand {
+    color: #FFED31;
+}
+.navbar-custom .navbar-text {
+    color: white;
+}
+
+.navbar-customclass .navbar-nav .nav-link {
+    color: white;
+}
+
+/* navigation links anchor hover and active styles */
+.navbar-customclass .nav-item.active .nav-link,
+.navbar-customclass .nav-item:hover .nav-link {
+    color: #FFED31;
+}
+
+.form-control:focus {
+        border-color: #FFED31;
+        box-shadow: 0 0 0 0.2rem #FFED31;
+    }
+
+.bg {
+  /* The image used */
+  background-image: url(https://wallpapercave.com/wp/wp8063327.jpg);
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.parallax {
+  /* The image used */
+  background-image: url(https://wallpapercave.com/wp/wp8063327.jpg);
+
+  /* Set a specific height */
+  min-height: 500px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@import url("http://fonts.googleapis.com/css?family=Oswald:400,300,700");
+
+#index_heading {
+      font-family: 'Oswald', sans-serif !important;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.top5 { margin-top:5px; }
+.top7 { margin-top:7px; }
+.top10 { margin-top:10px; }
+.top15 { margin-top:15px; }
+.top17 { margin-top:17px; }
+.top30 { margin-top:30px; }
+
+.strokeme
+{
+    color: white;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}

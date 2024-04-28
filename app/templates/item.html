@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+{{item.product_name}}
+{% endblock %}
+
+{% block content %}
+<h1>{{item.condition}} | {{item.product_name}} | ${{item.price}}</h1>
+<div>Picture</div>
+<p>Quantity: {{item.quantity}}</p>
+<p>Category: {{category}}</p>
+<p>Seller: {{seller.username}}</p>
+<p>Description: {{item.description}}</p>
+{% if seller.id == current_user.id %}
+    <form action="i/{{item.itemID}}/update" method="post">
+        <input type="submit" value="Update Item"/>
+    </form>
+    <form action="" method="POST">
+        {{ delete_form.hidden_tag() }}
+        <p>{{ delete_form.delete() }}</p>
+    </form>
+{% endif %}
+
+<form action="i/{{item.itemID}}/cart" method="post">
+    <input type="submit" value="Add To Cart"/>
+</form>
+
+{% endblock %}

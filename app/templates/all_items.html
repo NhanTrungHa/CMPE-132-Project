@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Available Books
+{% endblock %}
+
+{% block content %}
+<div class = "row justify-content-center parallax">
+
+<div class="col-auto panel" >
+{% if selected_category %}
+<h1 class="display-4 text-primary">Books - {{categories[selected_category].category_name}}</h1>
+{% else %}
+<h1 class="display-4 text-primary text-center">All Books</h1>
+{% endif %}
+<form action="" method="GET">
+    <label class="control-label "> <p>{{ form.category(class="btn btn-secondary dropdown-toggle") }} {{ form.submit(class="btn btn-primary") }}</p></label>
+</form>
+{% for item in items %}
+<div class="row justify-content-center">
+<table>
+    <tbody>
+        <tr>
+            <div class="row">
+            <td>
+                <div class="card  align-items-stretch" style="width: 18rem;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/SNice.svg/1200px-SNice.svg.png" class="card-img-top" alt="Placeholder image">
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="/i/{{item.itemID}}">{{item.condition}} | {{item.product_name}} | ${{item.price}}</h5>
+                        <p class="card-text"> Quantity: {{item.quantity}} </p> <br/>
+                        <p class="card-text"> Category: {{categories[item.categoryID].category_name}} </p> <br/>
+                        <p class="card-text"> Description: {{item.description}} </p> <br/>
+
+                        <form action="i/{{item.itemID}}/cart" method="post">
+                            <input type="submit" value="Add To Cart" class="btn btn-primary"/>
+                        </form>
+                    </div>
+                </div>
+            </td>
+            </div>
+        </tr>
+    </tbody>
+</table>
+<br/>
+</div>
+{% endfor %}
+    </div>
+    </div>
+{% endblock %}
