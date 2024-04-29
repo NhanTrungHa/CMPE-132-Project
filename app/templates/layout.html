@@ -42,13 +42,98 @@
               </div>
             </nav>
             {% elif current_user.role == 'professor' %}
-                <!-- User is a professor -->
-                <!-- Add your professor-specific content here -->
-            {% elif current_user.role == 'student' %}
-                <!-- User is a student -->
-                <!-- Add your student-specific content here -->
-            {% elif current_user.role == 'registered_user' %}
+                <nav class="navbar navbar-expand-lg navbar-custom navbar-customclass">
+            <a class="navbar-brand" href="index">
+                  <img src="static/Best_Bay_Logo.png" width="75" height="50" alt="image"/></a>
+            </a>
+              <a class="navbar-brand" href="index">Welcome {{current_user.username}}!</a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
 
+              <div class="collapse navbar-collapse">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="index">Home <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="all_items">All Books </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="create_item">Add a book </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="cart">View Cart </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="logout">Logout </a>
+                  </li>
+
+                </ul>
+              </div>
+            </nav>
+            {% elif current_user.role == 'student' %}
+                <nav class="navbar navbar-expand-lg navbar-custom navbar-customclass">
+            <a class="navbar-brand" href="index">
+                  <img src="static/Best_Bay_Logo.png" width="75" height="50" alt="image"/></a>
+            </a>
+              <a class="navbar-brand" href="index">Welcome {{current_user.username}}!</a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div class="collapse navbar-collapse">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="index">Home <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="all_items">All Books </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="create_item">Add a book </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="cart">View Cart </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="logout">Logout </a>
+                  </li>
+
+                </ul>
+              </div>
+            </nav>
+            {% elif current_user.role == 'registered_user' %}
+            <nav class="navbar navbar-expand-lg navbar-custom navbar-customclass">
+            <a class="navbar-brand" href="index">
+                  <img src="static/Best_Bay_Logo.png" width="75" height="50" alt="image"/></a>
+            </a>
+              <a class="navbar-brand" href="index">Welcome {{current_user.username}}!</a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div class="collapse navbar-collapse">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="index">Home <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="all_items">All Books </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="create_item">Add a book </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="cart">View Cart </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="logout">Logout </a>
+                  </li>
+
+                </ul>
+              </div>
+            </nav>
             {% else %}
                         <nav class="navbar navbar-expand-lg navbar-custom navbar-customclass">
             <a class="navbar-brand" href="index">

@@ -226,26 +226,41 @@ def update_info():
     string
         HTML code contained in update_info.html to display
     """
+    if not current_user.is_admin:
+        return "You do not have permission to access this page."
+
     form = updateForm()
+    users = User.query.all()
+    for u in users:
+        print(u.id, u.username)
+    u=User.query.get(0)
+    print(u)
+    print()
     if form.validate_on_submit():
-        user = User.query.filter_by(email=current_user.email).first()
-        if request.form.get('username', None):
-            user.username = form.username.data
-        if request.form.get('firstname', None):
-            user.first_name = form.firstname.data
-        if request.form.get('lastname', None):
-            user.last_name = form.lastname.data
-        if request.form.get('password1', None) and request.form.get('password2', None):
-            user.set_password(form.password1.data)
-        if request.form.get('email', None):
-            user.email = form.email.data
-        if request.form.get('securityQuestion', None):
-            user.securityQuestion = form.securityQuestion.data
-        if request.form.get('securityQuestionAnswer', None):
-            user.set_security_answer(form.securityQuestionAnswer.data)
-        db.session.add(user)
-        db.session.commit()
-        return redirect(url_for("index"))
+        user_email = form.email.data
+        user = User.query.filter_by(email=user_email).first()
+        if user:
+            if request.form.get('username', None):
+                user.username = form.username.data
+            if request.form.get('firstname', None):
+                user.first_name = form.firstname.data
+            if request.form.get('lastname', None):
+                user.last_name = form.lastname.data
+            if request.form.get('password1', None) and request.form.get('password2', None):
+                user.set_password(form.password1.data)
+            if request.form.get('email', None):
+                user.email = form.email.data
+            if request.form.get('securityQuestion', None):
+                user.securityQuestion = form.securityQuestion.data
+            if request.form.get('securityQuestionAnswer', None):
+                user.set_security_answer(form.securityQuestionAnswer.data)
+            if current_user.is_admin():
+                if form.role.data:
+                    user.role = form.role.data
+            db.session.commit()
+            return redirect(url_for("index"))
+        else:
+            flash("User with the provided email does not exist.", "error")
     return render_template('update_info.html', form=form)
 
 

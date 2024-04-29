@@ -41,6 +41,19 @@ Update Your Info
      </div>
      <br>
      <div>
+        <select name="role" class="rounded form-control">
+            <option value="registered_user" {% if form.role == 'registered_user' %}selected{% endif %}>Registered User</option>
+            <option value="admin" {% if form.role == 'admin' %}selected{% endif %}>Admin</option>
+            <option value="librarian" {% if form.role == 'librarian' %}selected{% endif %}>Librarian</option>
+            <option value="professor" {% if form.role == 'professor' %}selected{% endif %}>Professor</option>
+            <option value="student" {% if form.role == 'student' %}selected{% endif %}>Student</option>
+        </select>
+        {% for error in form.role.errors %}
+        <p>{{ error }}</p>
+        {% endfor %}
+    </div>
+     <br>
+     <div>
           <label class="control-label"> {{ form.password2(class="rounded form-control",placeholder="Confirm password")}}</label>
           {% for error in form.password2.errors %}
           <p>{{ error }}</p>

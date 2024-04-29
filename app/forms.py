@@ -39,6 +39,13 @@ class updateForm(FlaskForm):
     firstname = StringField('firstname')
     lastname = StringField('lastname')
     username = StringField('username')
+    role = SelectField('Role', choices=[
+        ('registered_user', 'Registered User'),
+        ('admin', 'Admin'),
+        ('librarian', 'Librarian'),
+        ('professor', 'Professor'),
+        ('student', 'Student')
+    ])
     email = StringField('Email', validators=[Email()])
     password1 = PasswordField('Password')
     password2 = PasswordField('Confirm Password', validators=[EqualTo('password1')])

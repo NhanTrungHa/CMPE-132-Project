@@ -21,6 +21,10 @@ class User(UserMixin, db.Model):
     securityQuestion = db.Column(db.String(128))
     question_answer_hash = db.Column(db.String(128))
 
+    def is_admin(self):
+        # Check if the user's role is 'admin'
+        return self.role == 'admin'
+
     def set_security_answer(self, securityQuestionAnswer):
         self.question_answer_hash = generate_password_hash(securityQuestionAnswer)
 
